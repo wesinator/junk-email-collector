@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 import config
 from datetime import date
 import outlook
@@ -8,10 +8,8 @@ mail.login(config.outlook_email,config.outlook_password)
 mail.junk()
 
 unread_ids = mail.unreadIds()
-print(unread_ids)
-
 for email_id in unread_ids:
-    if unread_ids[0] != '':
+    if email_id != '':
         with open("Junk/%s_%s.eml" % (date.today(), email_id), "wb") as eml:
             #print(mail.getEmail(email_id)["Date"])
             eml.write(mail.getEmail(email_id).as_string())

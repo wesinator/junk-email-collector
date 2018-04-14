@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 outlook_email = "example@hotmail.com"
 outlook_password = "pass"
 
