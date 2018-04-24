@@ -3,14 +3,14 @@ import config
 from datetime import date
 import outlook
 
-def get_outlook_junk(email_account, password):
+def get_junk(email_account, password):
     mail = outlook.Outlook()
     mail.login(email_account, password)
     mail.junk()
     
     unread_ids = mail.unreadIds()
     for email_id in unread_ids:
-        if email_id != '':
+        if email_id != b'':
             msg = mail.getEmail(email_id)
             with open("Junk/%s_%s.eml" % (date.today(), msg["subject"]), "wb") as eml:
                 eml.write(msg.as_string())
@@ -18,4 +18,4 @@ def get_outlook_junk(email_account, password):
                 print(msg["Date"])
                 print(msg["subject"])
 
-get_outlook_junk(config.outlook_email, config.outlook_password)
+get_junk(config.email, config.password)
