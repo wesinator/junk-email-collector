@@ -39,7 +39,7 @@ class JunkEmailCollector:
             
             # Get sha256 of each raw message and save raw msg
             for uid, msg in unread_junk:
-                raw_msg = msg.raw_email
+                raw_msg = msg.raw_email.encode("ascii")
                 sha256 = hashlib.sha256(raw_msg).hexdigest()
                 
                 with open(self.save_folder + "/%s.eml" % sha256, "wb") as eml:
