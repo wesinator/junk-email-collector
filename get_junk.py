@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import config
-from datetime import date
 import hashlib
 import outlook
 
