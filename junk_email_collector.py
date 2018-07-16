@@ -16,11 +16,11 @@ class JunkEmailCollector:
         
         # Create directory to save junk email
         email_parts = email_address.split('@')
-        junk_folder = "%s_%s" % (email_parts[0], email_parts[1])
+        save_folder = "%s_%s" % (email_parts[0], email_parts[1])
         
-        if not os.path.exists(junk_folder):
-            os.mkdir(junk_folder)
-        self.junk_folder = junk_folder
+        if not os.path.exists(save_folder):
+            os.mkdir(save_folder)
+        self.save_folder = save_folder
     
     # Get all unread junk messages from account
     def get_junk(self):
@@ -42,7 +42,7 @@ class JunkEmailCollector:
                 raw_msg = msg.raw_email
                 sha256 = hashlib.sha256(raw_msg).hexdigest()
                 
-                with open(self.junk_folder + "/%s.eml" % sha256, "wb") as eml:
+                with open(self.save_folder + "/%s.eml" % sha256, "wb") as eml:
                     eml.write(raw_msg)
                 
                 # Print message info
