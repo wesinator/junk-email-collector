@@ -53,6 +53,6 @@ class JunkEmailCollector:
 
                     # Mark the message as read
                     imbox.mark_seen(uid)
+
         except gaierror as e:
-            print(f'Error connecting: {e} \n\tCheck your creds or imap server.')
-            return
+            print('Error connecting: %s\nCheck your creds or imap server.' % e)
