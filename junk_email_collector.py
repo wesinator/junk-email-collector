@@ -41,9 +41,11 @@ class JunkEmailCollector:
                 for uid, msg in unread_junk:
                     raw_msg = msg.raw_email.encode("utf-8")
                     sha256 = hashlib.sha256(raw_msg).hexdigest()
-
-                    with open(self.save_folder + "/%s.eml" % sha256, "wb") as eml:
-                        eml.write(raw_msg)
+                    
+                    eml_file = self.save_folder + '/' + sha256 + ".eml"
+                    if not os.path.exists(eml_file):
+                        with open(eml_file, "wb") as eml:
+                            eml.write(raw_msg)
 
                     # Print message info
                     print('\n' + msg.date)
