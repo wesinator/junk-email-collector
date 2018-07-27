@@ -14,13 +14,12 @@ class JunkEmailCollector:
         # Specify the junk folder on the account, usually 'Junk' or 'Spam'
         self.junk_folder = junk_folder
 
-        # Create directory to save junk email
+        # Create directory to save junk email, using email address name
         email_parts = email_address.split('@')
-        save_folder = "%s_%s" % (email_parts[0], email_parts[1])
-
-        if not os.path.exists(save_folder):
-            os.mkdir(save_folder)
-        self.save_folder = save_folder
+        self.save_folder = "%s_%s" % (email_parts[0], email_parts[1])
+        
+        if not os.path.exists(self.save_folder):
+            os.mkdir(self.save_folder)
 
     # Get all unread junk messages from account
     def get_junk(self):
