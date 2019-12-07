@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 with open('README.md') as readme_file:
     readme = readme_file.read()
@@ -7,14 +7,14 @@ with open('README.md') as readme_file:
     #license = license_file.read()
 
 setup(name='junk-email-collector',
-      version='0.1.0',
+      version='0.1.1',
       description='Download raw Junk/Spam emails using IMAP.',
       long_description=readme,
       long_description_content_type='text/markdown',
       url='https://github.com/wesinator/junk-email-collector',
       author='wesinator',
       keywords='spam',
-      packages=['junk-email-collector'],
+      packages=find_packages(exclude=('tests', 'docs')),
       classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
