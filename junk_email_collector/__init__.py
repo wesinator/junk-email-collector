@@ -4,4 +4,4 @@
 from .junk_email_collector import JunkEmailCollector
 
 __author__ = 'wesinator'
-__version__ = '0.1.1'
+__version__ = '1.0.0'

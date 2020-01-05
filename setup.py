@@ -6,8 +6,12 @@ with open('README.md') as readme_file:
 #with open('LICENSE') as license_file:
     #license = license_file.read()
 
+requirements = [
+    'imbox',
+]
+
 setup(name='junk-email-collector',
-      version='0.1.1',
+      version='1.0.0',
       description='Download raw Junk/Spam emails using IMAP.',
       long_description=readme,
       long_description_content_type='text/markdown',
@@ -15,6 +19,7 @@ setup(name='junk-email-collector',
       author='wesinator',
       keywords='spam',
       packages=find_packages(exclude=('tests', 'docs')),
+      install_requires=requirements,
       classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
